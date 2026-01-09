@@ -7,6 +7,7 @@ from typing import Any
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import Platform
 from homeassistant.core import HomeAssistant
+from homeassistant.helpers.discovery import async_load_platform
 
 from .const import DOMAIN, ATTR_LIGHT_STATE, ATTR_LIGHT_BRIGHTNESS, DEFAULT_BRIGHTNESS
 
@@ -46,9 +47,7 @@ async def async_setup(hass: HomeAssistant, config: dict) -> bool:
     # Load platforms
     for platform in PLATFORMS:
         hass.async_create_task(
-            hass.helpers.discovery.async_load_platform(
-                platform, DOMAIN, {}, config
-            )
+            async_load_platform(hass, platform, DOMAIN, {}, config)
         )
 
     return True
