@@ -9,6 +9,7 @@ A simple Home Assistant custom integration that creates dummy entities for testi
 - **Dummy Temperature Sensor** - Simulates a temperature sensor with random fluctuations (18-28°C)
 - **Dummy Light** - A virtual light with on/off and brightness control
 - **Dummy Light Switch** - A switch that controls the dummy light state
+- **Restart Button** - A button to restart Home Assistant (useful after updates)
 
 The switch and light are linked - toggling one will update the other.
 
@@ -41,6 +42,7 @@ Restart Home Assistant. The following entities will be created:
 | `sensor.dummy_temperature` | Sensor | Temperature sensor (°C) |
 | `light.dummy_light` | Light | Dimmable light |
 | `switch.dummy_light_switch` | Switch | Controls the dummy light |
+| `button.restart_home_assistant` | Button | Restart Home Assistant |
 
 ## License
 
