@@ -7,6 +7,7 @@ from typing import Any
 from homeassistant.components.switch import SwitchEntity
 from homeassistant.core import HomeAssistant, callback
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
+from homeassistant.config_entries import ConfigEntry
 from homeassistant.helpers.typing import ConfigType, DiscoveryInfoType
 
 from .const import DOMAIN
@@ -20,7 +21,22 @@ async def async_setup_platform(
     async_add_entities: AddEntitiesCallback,
     discovery_info: DiscoveryInfoType | None = None,
 ) -> None:
-    """Set up the Dummy switch platform."""
+    """Set up the Dummy switch platform from YAML."""
+    data = hass.data.get(DOMAIN)
+    if data is None:
+        _LOGGER.error("Dummy integration data not found")
+        return
+
+    switch = DummyLightSwitch(data)
+    async_add_entities([switch], True)
+
+
+async def async_setup_entry(
+    hass: HomeAssistant,
+    entry: ConfigEntry,
+    async_add_entities: AddEntitiesCallback,
+) -> None:
+    """Set up the Dummy switch platform from config entry."""
     data = hass.data.get(DOMAIN)
     if data is None:
         _LOGGER.error("Dummy integration data not found")

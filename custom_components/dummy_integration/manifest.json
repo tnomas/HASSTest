@@ -2,9 +2,9 @@
   "domain": "dummy_integration",
   "name": "Dummy Integration",
   "codeowners": [],
-  "config_flow": false,
+  "config_flow": true,
   "documentation": "https://github.com/example/dummy_integration",
   "iot_class": "local_polling",
   "issue_tracker": "https://github.com/example/dummy_integration/issues",
-  "version": "1.1.0"
+  "version": "1.2.0"
 }

@@ -11,6 +11,7 @@ from homeassistant.components.light import (
 )
 from homeassistant.core import HomeAssistant, callback
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
+from homeassistant.config_entries import ConfigEntry
 from homeassistant.helpers.typing import ConfigType, DiscoveryInfoType
 
 from .const import DOMAIN, DEFAULT_BRIGHTNESS
@@ -24,7 +25,22 @@ async def async_setup_platform(
     async_add_entities: AddEntitiesCallback,
     discovery_info: DiscoveryInfoType | None = None,
 ) -> None:
-    """Set up the Dummy light platform."""
+    """Set up the Dummy light platform from YAML."""
+    data = hass.data.get(DOMAIN)
+    if data is None:
+        _LOGGER.error("Dummy integration data not found")
+        return
+
+    light = DummyLight(data)
+    async_add_entities([light], True)
+
+
+async def async_setup_entry(
+    hass: HomeAssistant,
+    entry: ConfigEntry,
+    async_add_entities: AddEntitiesCallback,
+) -> None:
+    """Set up the Dummy light platform from config entry."""
     data = hass.data.get(DOMAIN)
     if data is None:
         _LOGGER.error("Dummy integration data not found")
