@@ -1,0 +1,13 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Dummy Integration",
+        "description": "Add Dummy Integration to create demo entities (sensor, light, switch, restart button)."
+      }
+    },
+    "abort": {
+      "already_configured": "Dummy Integration is already configured."
+    }
+  }
+}

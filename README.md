@@ -29,13 +29,26 @@ The switch and light are linked - toggling one will update the other.
 
 ## Configuration
 
+### UI Setup (Recommended)
+
+1. Go to Settings → Devices & Services
+2. Click "+ Add Integration"
+3. Search for "Dummy Integration"
+4. Click to add
+
+### YAML Setup (Alternative)
+
 Add the following to your `configuration.yaml`:
 
 ```yaml
 dummy_integration:
 ```
 
-Restart Home Assistant. The following entities will be created:
+Restart Home Assistant.
+
+## Entities
+
+The following entities will be created:
 
 | Entity ID | Type | Description |
 |-----------|------|-------------|

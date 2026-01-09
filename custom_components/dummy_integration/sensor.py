@@ -13,6 +13,7 @@ from homeassistant.components.sensor import (
 from homeassistant.const import UnitOfTemperature
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
+from homeassistant.config_entries import ConfigEntry
 from homeassistant.helpers.typing import ConfigType, DiscoveryInfoType
 
 from .const import DOMAIN, DEFAULT_SENSOR_VALUE
@@ -28,7 +29,16 @@ async def async_setup_platform(
     async_add_entities: AddEntitiesCallback,
     discovery_info: DiscoveryInfoType | None = None,
 ) -> None:
-    """Set up the Dummy sensor platform."""
+    """Set up the Dummy sensor platform from YAML."""
+    async_add_entities([DummySensor()], True)
+
+
+async def async_setup_entry(
+    hass: HomeAssistant,
+    entry: ConfigEntry,
+    async_add_entities: AddEntitiesCallback,
+) -> None:
+    """Set up the Dummy sensor platform from config entry."""
     async_add_entities([DummySensor()], True)
 
 
