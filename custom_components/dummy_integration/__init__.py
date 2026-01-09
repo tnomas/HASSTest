@@ -12,7 +12,7 @@ from .const import DOMAIN, ATTR_LIGHT_STATE, ATTR_LIGHT_BRIGHTNESS, DEFAULT_BRIG
 
 _LOGGER = logging.getLogger(__name__)
 
-PLATFORMS: list[Platform] = [Platform.SENSOR, Platform.LIGHT, Platform.SWITCH]
+PLATFORMS: list[Platform] = [Platform.SENSOR, Platform.LIGHT, Platform.SWITCH, Platform.BUTTON]
 
 
 class DummyIntegrationData:
