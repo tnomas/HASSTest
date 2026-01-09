@@ -1,6 +1,6 @@
 # Dummy Integration for Home Assistant
 
-[![Open your Home Assistant instance and open a repository inside the Home Assistant Community Store.](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=tnomas&repo=HASSTest&category=integration)
+[![Open your Home Assistant instance and open a repository inside the Home Assistant Community Store.](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=tnomas&repository=HASSTest&category=integration)
 
 A simple Home Assistant custom integration that creates dummy entities for testing and demonstration purposes.
 
